@@ -1,0 +1,56 @@
+﻿<Window x:Class="MiniCAD.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:h="http://helix-toolkit.org/wpf"
+        xmlns:local="clr-namespace:MiniCAD.UI"
+        mc:Ignorable="d"
+        Title="MiniCAD" Height="800" Width="1200" MinHeight="600" MinWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="12" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#303740" Padding="12">
+            <DockPanel>
+                <TextBlock Text="MiniCAD" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text=" | 3D Workspace" Foreground="#BBC1CC" VerticalAlignment="Center"/>
+            </DockPanel>
+        </Border>
+
+        <!-- Main viewport -->
+
+        <Grid Grid.Row="1" Margin="8">
+            <h:HelixViewport3D 
+                x:Name="Viewport"
+                Background="#252B33"
+                ShowCoordinateSystem="True"
+                ZoomExtentsWhenLoaded="True">
+
+                <h:HelixViewport3D.DefaultCamera>
+                    <PerspectiveCamera 
+                        Position="12,12,10"
+                        LookDirection="-12,-12,-10"
+                        UpDirection="0,0,1"
+                        FieldOfView="45"/> 
+                </h:HelixViewport3D.DefaultCamera>
+
+                <h:DefaultLights/> 
+
+             
+
+            </h:HelixViewport3D>
+        </Grid>
+
+        <Border Grid.Row="2" Background="#303740" Padding="8,3">
+            <TextBlock Text="Ready | MiniCAD" Foreground="#BBC1CC" FontSize="11"/>
+        </Border>
+
+    </Grid>
+    
+    
+    
+</Window>
