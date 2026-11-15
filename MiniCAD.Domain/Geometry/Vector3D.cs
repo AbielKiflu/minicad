@@ -5,7 +5,8 @@
         public double X { get; }
         public double Y { get; }
         public double Z { get; }
-        public double Length => Math.Sqrt(X * X + Y * Y + Z * Z);
+        public double LengthSquared => X * X + Y * Y + Z * Z;
+        public double Length => Math.Sqrt(LengthSquared);
 
         public Vector3D(double x, double y, double z)
         {
@@ -17,7 +18,7 @@
 
         public Vector3D Normalize()
         {
-            double length = Length;
+            double length = LengthSquared;
 
             if(length == 0)
                 throw new InvalidOperationException("Cannot normalise a zero vector");
@@ -38,7 +39,23 @@
 
         public static Vector3D operator *(Vector3D a, double scalar)
         {
+            if (scalar == 0)
+                throw new DivideByZeroException();
+
             return new Vector3D(a.X * scalar, a.Y * scalar, a.Z * scalar);
+        }
+
+        public static Vector3D operator /(
+       Vector3D vector, double scalar)
+        {
+            if (scalar == 0)
+                throw new DivideByZeroException();
+
+            return new Vector3D(
+                vector.X / scalar,
+                vector.Y / scalar,
+                vector.Z / scalar
+            );
         }
 
         public double Dot(Vector3D other)
