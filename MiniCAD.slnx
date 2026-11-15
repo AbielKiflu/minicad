@@ -1,4 +1,4 @@
 <Solution>
   <Project Path="MiniCAD.Domain/MiniCAD.Domain.csproj" Id="eefe2613-87a2-4df0-a318-d9e5a38ce2ee" />
-  <Project Path="MiniCAD.UI/MiniCAD.UI.csproj" Id="c6e9c2ae-d454-4d0d-ade3-4d0908290172" />
+  <Project Path="MiniCAD.GUI/MiniCAD.GUI.csproj" Id="5a56a9eb-806b-48ff-8848-4c9d6b5f902e" />
 </Solution>
